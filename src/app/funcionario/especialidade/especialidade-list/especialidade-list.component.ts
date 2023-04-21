@@ -9,13 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./especialidade-list.component.css'],
 })
 export class EspecialidadeListComponent extends ComponenteCrudListBase<Especialidade> {
+  constructor(service: EspecialidadeService) {
+    super(service);
+  }
 
-  constructor(
-    service: EspecialidadeService) {
-      super(service);
-    }
-
-  protected comparar(a: Especialidade, b: Especialidade): number{
-    return (a.nome?.toLowerCase() ?? "") > (b.nome?.toLowerCase() ?? "") ? 1 : -1;
+  protected comparar(a: Especialidade, b: Especialidade): number {
+    return (a.nome?.toLowerCase() ?? '') > (b.nome?.toLowerCase() ?? '')
+      ? 1
+      : -1;
   }
 }

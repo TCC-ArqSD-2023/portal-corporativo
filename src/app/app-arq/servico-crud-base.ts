@@ -11,7 +11,7 @@ export abstract class ServicoCrudBase<T extends EntidadeBase<T>>{
     protected http: HttpClient,
     protected recursoUrl: string,
   ){
-    this.apiUrl = `${environment.api.baseUrl}/especialidade`;
+    this.apiUrl = `${environment.api.baseUrl}/${recursoUrl}`;
   }
 
   obter(): Observable<T[]> {

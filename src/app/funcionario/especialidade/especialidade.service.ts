@@ -11,6 +11,6 @@ export class EspecialidadeService extends ServicoCrudBase<Especialidade> {
   constructor(
     http: HttpClient,
   ){
-    super(http, "")
+    super(http, "especialidade")
   }
 }

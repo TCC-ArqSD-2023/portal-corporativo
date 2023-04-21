@@ -1,7 +1,10 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +13,10 @@ import { EspecialidadeListComponent } from './funcionario/especialidade/especial
 import { EspecialidadeFormComponent } from './funcionario/especialidade/especialidade-form/especialidade-form.component';
 import { InputComponent } from './shared/input/input.component';
 import { AreaComponent } from './area/area.component';
+import { PlanoListComponent } from './funcionario/plano/plano-list/plano-list.component';
+import { PlanoFormComponent } from './funcionario/plano/plano-form/plano-form.component';
+
+registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
@@ -19,16 +26,26 @@ import { AreaComponent } from './area/area.component';
     EspecialidadeFormComponent,
     InputComponent,
     AreaComponent,
+    PlanoListComponent,
+    PlanoFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR',
+    },
+    {
+      provide: DEFAULT_CURRENCY_CODE,
+      useValue: 'BRL',
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

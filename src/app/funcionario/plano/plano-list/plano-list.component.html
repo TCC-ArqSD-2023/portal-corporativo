@@ -1,0 +1,55 @@
+<header>
+  <div class="row">
+    <div class="col">
+      <button (click)="atualizar()" type="button" class="btn btn-outline-primary">Atualizar</button>
+    </div>
+    <div class="col text-end">
+      <button routerLink="/planoForm" type="button" class="btn btn-primary">Novo</button>
+    </div>
+  </div>
+</header>
+
+<section>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código ANS</th>
+        <th scope="col">Plano</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Odonto?</th>
+        <th scope="col">Idade (anos)</th>
+        <th scope="col">Consultas / Exames</th>
+        <th scope="col">Mensalidade</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let plano of entidades">
+        <td>{{ plano.id }}</td>
+        <td>{{ plano.codigoAns }}</td>
+        <td>{{ plano.nome }}</td>
+        <td>{{ plano.categoria }}</td>
+        <td>{{ plano.tipo }}</td>
+        <td>{{ plano.odonto ? "Sim" : "Não" }}</td>
+        <td>{{ plano.idadeMinima + "-" + plano.idadeMaxima }}</td>
+        <td>{{ plano.quantidadeConsultasAno + "/" + plano.quantidadeExamesAno }}</td>
+        <td>{{ plano.valorMensalidade | currency}}</td>
+        <td>
+          <div class="linha-acoes text-end">
+            <button routerLink="/especialidadeForm/{{ plano.id }}" class="btn btn-sm btn-outline-primary" type="button">Editar</button>
+            <button (click)="remover(plano.id!)" class="btn btn-sm btn-outline-danger" type="button">Remover</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="atualizandoLista">
+    Buscando dados...
+  </p>
+  <p *ngIf="entidades.length == 0 && !atualizandoLista">
+    Ainda não há especialidades cadastradas!
+  </p>
+
+</section>
