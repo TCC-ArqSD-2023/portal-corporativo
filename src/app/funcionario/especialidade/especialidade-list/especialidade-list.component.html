@@ -1,5 +1,12 @@
-<header class="text-end">
-  <button routerLink="/espealidadeForm" type="button" class="btn btn-primary">Adicionar especialidade</button>
+<header>
+  <div class="row">
+    <div class="col">
+      <button (click)="atualizar()" type="button" class="btn btn-outline-primary">Atualizar</button>
+    </div>
+    <div class="col text-end">
+      <button routerLink="/espealidadeForm" type="button" class="btn btn-primary">Adicionar especialidade</button>
+    </div>
+  </div>
 </header>
 
 <section>
@@ -10,15 +17,21 @@
         <th scope="col">Especialidade</th>
       </tr>
     </thead>
-    <tbody *ngIf="especialidades.length > 0, else semdados">
+    <tbody>
       <tr *ngFor="let esp of especialidades">
         <td>{{ esp.id }}</td>
         <td>{{ esp.nome }}</td>
       </tr>
     </tbody>
   </table>
+  <p *ngIf="atualizandoLista">
+    Buscando dados...
+  </p>
+  <p *ngIf="especialidades.length == 0 && !atualizandoLista">
+    Ainda não há especialidades cadastradas!
+  </p>
+
 </section>
 
 <ng-template #semdados>
-  <p>Ainda não há especialidades cadastradas!</p>
 </ng-template>
