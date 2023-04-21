@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EspecialidadeListComponent } from './funcionario/especialidade/especialidade-list/especialidade-list.component';
-import { ConfigService } from './app-services/config.service';
 import { EspecialidadeFormComponent } from './funcionario/especialidade/especialidade-form/especialidade-form.component';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { EspecialidadeFormComponent } from './funcionario/especialidade/especial
     ReactiveFormsModule
   ],
   providers: [
-    ConfigService
   ],
   bootstrap: [AppComponent]
 })

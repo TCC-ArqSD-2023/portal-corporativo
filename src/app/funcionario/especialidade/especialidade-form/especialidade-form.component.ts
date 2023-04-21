@@ -25,23 +25,28 @@ export class EspecialidadeFormComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
+    this.configurarFormulario();
+
     if (id){
       this.service.obterPorId(parseInt(id!)).subscribe((esp) => {
-        console.log("recebi o pacote")
         this.especialidade = esp;
         this.configurarFormulario();
       })
-    } else {
-      this.configurarFormulario();
     }
-
   }
 
   salvar(): void {
+    Object.assign(this.especialidade, this.formulario.value);
+
     if(this.formulario.valid){
-      this.service.criar(this.formulario.value).subscribe(() => {
-        this.router.navigate(['/especialidadeList']);
-      });
+      if(this.especialidade.id)
+        this.service.editar(this.especialidade).subscribe(() => {
+          this.router.navigate(['/especialidadeList']);
+        });
+      else
+        this.service.criar(this.especialidade).subscribe(() => {
+          this.router.navigate(['/especialidadeList']);
+        });
     }
   }
 
@@ -50,8 +55,6 @@ export class EspecialidadeFormComponent implements OnInit {
   }
 
   private configurarFormulario(): void {
-    console.log(this.especialidade)
-
     this.formulario = this.formBuilder.group({
       nome: [this.especialidade.nome]
     });

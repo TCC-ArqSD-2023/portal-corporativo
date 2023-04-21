@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    baseUrl: 'http://gisa-apim.eastus.cloudapp.azure.com:9080'
+    // apiUrl: 'https://safapi.azurewebsites.net'
+    // apiUrl: 'https://localhost:7299'
+  }
 };
 
 /*

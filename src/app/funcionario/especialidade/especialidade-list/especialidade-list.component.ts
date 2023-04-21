@@ -23,14 +23,18 @@ export class EspecialidadeListComponent implements OnInit {
 
     this.service.obter().subscribe((lista) => {
       this.atualizandoLista = false;
-      this.especialidades = lista;
+      this.especialidades = lista.sort((a,b) => (a.nome?.toLowerCase() ?? "") > (b.nome?.toLowerCase() ?? "") ? 1 : -1);
     });
   }
 
   remover(id: number) {
-    this.service.remover(id).subscribe({
-      next: () => {},
-      error: () => alert('Esse item não pode ser removido.')
-    });
+    console.log(id);
+
+    if(id){
+      this.service.remover(id).subscribe({
+        next: () => this.atualizar(),
+        error: () => alert('Esse item não pode ser removido.')
+      });
+    }
   }
 }
