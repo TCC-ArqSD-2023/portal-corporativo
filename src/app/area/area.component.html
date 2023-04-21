@@ -1,0 +1,20 @@
+<section>
+  <h1 class="display-6">Área do {{ menu.nome }}</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="menus">
+        <a
+          *ngFor="let item of menu.menuItens"
+          routerLink="{{ item.destino }}"
+          class="menu-item"
+          [attr.disabled]="item.destino"
+          >
+          <p class="icone bi-{{item.icone}}"></p>
+          <p class="rotulo">
+            {{item.nome}}
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

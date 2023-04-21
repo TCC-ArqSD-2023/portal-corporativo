@@ -1,0 +1,42 @@
+h1{
+  margin-bottom: 48px;
+}
+
+.menus{
+  display: flex;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+
+  width: 160px;
+  height: 120px;
+  margin: 12px;
+  padding: 8px;
+  background-color: #0081c6;
+  border-radius: 4px;
+
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.menu-item:hover{
+  background-color: #0977b3;
+}
+
+.menu-item .icone{
+  margin: 0;
+  font-size: 40px;
+}
+
+.menu-item .rotulo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0;
+
+  font-size: 20px;
+}

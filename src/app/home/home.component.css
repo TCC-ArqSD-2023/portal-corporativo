@@ -1,3 +1,43 @@
-.icone{
-  color: blue;
+.area{
+  display: flex;
+  padding: 12px;
+
+  align-items: center;
+
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.area .icone{
+  color: #0081c6;
+  margin-right: 20px;
+  font-size: 40px;
+}
+
+.area .rotulo{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-size: 32px;
+  line-height: 1;
+  color: #333;
+}
+.area .rotulo .prefixo{
+  font-size: 20px;
+}
+
+.area-associado {
+  margin: 80px 0;
+  background-color: #0081c6;
+
+  color: #fff;
+}
+
+.area-associado .icone{
+  color: #fff;
+}
+.area-associado .rotulo{
+  color: #fff;
+  font-size: 44px;
 }
