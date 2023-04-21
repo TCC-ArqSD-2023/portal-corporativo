@@ -2,3 +2,12 @@
 html, body{
   height: 100%!important;
 }
+
+/* LISTA */
+.linha-acoes .btn{
+  opacity: .3;
+  margin-left: 8px;
+}
+tr:hover .linha-acoes .btn{
+  opacity: 1;
+}

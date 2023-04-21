@@ -1,4 +1,4 @@
-export interface Especialidade{
+export class Especialidade{
   id?: number
-  nome: string
+  nome?: string
 }

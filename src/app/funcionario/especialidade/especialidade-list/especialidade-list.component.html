@@ -21,6 +21,12 @@
       <tr *ngFor="let esp of especialidades">
         <td>{{ esp.id }}</td>
         <td>{{ esp.nome }}</td>
+        <td>
+          <div class="linha-acoes text-end">
+            <button routerLink="/especialidadeForm/{{ esp.id }}" class="btn btn-sm btn-outline-primary" type="button">Editar</button>
+            <button (click)="remover(esp.id!)" class="btn btn-sm btn-outline-danger" type="button">Remover</button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -33,5 +39,20 @@
 
 </section>
 
-<ng-template #semdados>
-</ng-template>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>

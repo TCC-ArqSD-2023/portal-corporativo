@@ -1,7 +1,8 @@
+import { Especialidade } from './../especialidade';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EspecialidadeService } from '../especialidade.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-especialidade-form',
@@ -10,18 +11,30 @@ import { Router } from '@angular/router';
 })
 export class EspecialidadeFormComponent implements OnInit {
 
-  formulario!: FormGroup
+  formulario!: FormGroup;
+  especialidade: Especialidade;
 
   constructor(
     private service: EspecialidadeService,
     private router: Router,
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder
-  ) { }
+  ) {
+    this.especialidade = new Especialidade();
+  }
 
   ngOnInit(): void {
-    this.formulario = this.formBuilder.group({
-      nome: ['']
-    });
+    const id = this.route.snapshot.paramMap.get('id')
+    if (id){
+      this.service.obterPorId(parseInt(id!)).subscribe((esp) => {
+        console.log("recebi o pacote")
+        this.especialidade = esp;
+        this.configurarFormulario();
+      })
+    } else {
+      this.configurarFormulario();
+    }
+
   }
 
   salvar(): void {
@@ -34,5 +47,13 @@ export class EspecialidadeFormComponent implements OnInit {
 
   cancelar() {
     this.router.navigate(['/especialidadeList']);
+  }
+
+  private configurarFormulario(): void {
+    console.log(this.especialidade)
+
+    this.formulario = this.formBuilder.group({
+      nome: [this.especialidade.nome]
+    });
   }
 }

@@ -15,11 +15,26 @@ export class EspecialidadeService {
     this.API = configService.getApiUrl() + "/especialidade";
   }
 
-  listar(): Observable<Especialidade[]> {
+  obter(): Observable<Especialidade[]> {
     return this.http.get<Especialidade[]>(this.API);
+  }
+
+  obterPorId(id: number): Observable<Especialidade> {
+    const url = `${this.API}/${id}`;
+    return this.http.get<Especialidade>(url);
   }
 
   criar(especialidade: Especialidade): Observable<Especialidade> {
     return this.http.post<Especialidade>(this.API, especialidade);
+  }
+
+  editar(especialidade: Especialidade): Observable<Especialidade> {
+    const url = `${this.API}/${especialidade.id}`;
+    return this.http.put<Especialidade>(url, especialidade);
+  }
+
+  remover(id: number): Observable<Especialidade> {
+    const url = `${this.API}/${id}`;
+    return this.http.delete<Especialidade>(url);
   }
 }

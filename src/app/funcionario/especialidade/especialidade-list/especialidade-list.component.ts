@@ -21,9 +21,16 @@ export class EspecialidadeListComponent implements OnInit {
     this.atualizandoLista = true;
     this.especialidades = [];
 
-    this.service.listar().subscribe((lista) => {
+    this.service.obter().subscribe((lista) => {
       this.atualizandoLista = false;
       this.especialidades = lista;
+    });
+  }
+
+  remover(id: number) {
+    this.service.remover(id).subscribe({
+      next: () => {},
+      error: () => alert('Esse item não pode ser removido.')
     });
   }
 }
