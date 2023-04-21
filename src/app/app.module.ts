@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EspecialidadeListComponent } from './funcionario/especialidade/especialidade-list/especialidade-list.component';
 import { EspecialidadeFormComponent } from './funcionario/especialidade/especialidade-form/especialidade-form.component';
+import { InputComponent } from './shared/input/input.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { EspecialidadeFormComponent } from './funcionario/especialidade/especial
     HomeComponent,
     EspecialidadeListComponent,
     EspecialidadeFormComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,

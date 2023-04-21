@@ -1,6 +1,6 @@
 import { Especialidade } from './../especialidade';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EspecialidadeService } from '../especialidade.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponenteCrudFormBase } from 'src/app/app-arq/componente-crud-form-base';
@@ -22,7 +22,10 @@ export class EspecialidadeFormComponent extends ComponenteCrudFormBase<Especiali
 
   protected configurarFormulario(): void {
     this.formulario = this.formBuilder.group({
-      nome: [this.entidade.nome],
+      nome: [this.entidade.nome, Validators.compose([
+        Validators.required,
+        Validators.minLength(3)
+      ])],
     });
   }
 

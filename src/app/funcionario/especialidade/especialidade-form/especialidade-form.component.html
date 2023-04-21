@@ -3,14 +3,13 @@
     <div class="col">
       <label for="nome" class="form-label">Especialidade</label>
       <input type="text" id="nome" formControlName="nome" class="form-control">
-      <div class="invalid-feedback" *ngIf="formulario.get('name')?.errors">
-        {{formulario.get('name')?.errors}}
+      <div class="mensagem-erro" *ngIf="formulario.get('nome')?.touched && formulario.get('nome')?.errors">
+        {{ formulario.get('nome')?.errors | json }}
       </div>
 
     </div>
 
     <div class="col-12">
-
       <button (click)="salvar()" class="btn btn-primary" type="button">Salvar</button>
       <button (click)="cancelar()" class="btn" type="button">Cancelar</button>
     </div>
