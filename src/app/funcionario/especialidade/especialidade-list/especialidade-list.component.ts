@@ -1,3 +1,4 @@
+import { ComponenteCrudListBase } from 'src/app/app-arq/componente-crud-list-base';
 import { EspecialidadeService } from '../especialidade.service';
 import { Especialidade } from './../especialidade';
 import { Component, OnInit } from '@angular/core';
@@ -7,34 +8,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './especialidade-list.component.html',
   styleUrls: ['./especialidade-list.component.css'],
 })
-export class EspecialidadeListComponent implements OnInit {
-  atualizandoLista: boolean = false;
-  especialidades: Especialidade[] = [];
+export class EspecialidadeListComponent extends ComponenteCrudListBase<Especialidade> {
 
-  constructor(private service: EspecialidadeService) {}
-
-  ngOnInit(): void {
-    this.atualizar();
-  }
-
-  atualizar(): void {
-    this.atualizandoLista = true;
-    this.especialidades = [];
-
-    this.service.obter().subscribe((lista) => {
-      this.atualizandoLista = false;
-      this.especialidades = lista.sort((a,b) => (a.nome?.toLowerCase() ?? "") > (b.nome?.toLowerCase() ?? "") ? 1 : -1);
-    });
-  }
-
-  remover(id: number) {
-    console.log(id);
-
-    if(id){
-      this.service.remover(id).subscribe({
-        next: () => this.atualizar(),
-        error: () => alert('Esse item não pode ser removido.')
-      });
+  constructor(
+    service: EspecialidadeService) {
+      super(service);
     }
+
+  protected comparar(a: Especialidade, b: Especialidade): number{
+    return (a.nome?.toLowerCase() ?? "") > (b.nome?.toLowerCase() ?? "") ? 1 : -1;
   }
 }
