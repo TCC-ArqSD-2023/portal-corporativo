@@ -3,60 +3,34 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EspecialidadeService } from '../especialidade.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ComponenteCrudFormBase } from 'src/app/app-arq/componente-crud-form-base';
 
 @Component({
   selector: 'app-especialidade-form',
   templateUrl: './especialidade-form.component.html',
-  styleUrls: ['./especialidade-form.component.css']
+  styleUrls: ['./especialidade-form.component.css'],
 })
-export class EspecialidadeFormComponent implements OnInit {
-
-  formulario!: FormGroup;
-  especialidade: Especialidade;
-
+export class EspecialidadeFormComponent extends ComponenteCrudFormBase<Especialidade> {
   constructor(
-    private service: EspecialidadeService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    service: EspecialidadeService,
+    router: Router,
+    route: ActivatedRoute,
+    formBuilder: FormBuilder
   ) {
-    this.especialidade = new Especialidade();
+    super(service, router, route, formBuilder);
   }
 
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
-    this.configurarFormulario();
-
-    if (id){
-      this.service.obterPorId(parseInt(id!)).subscribe((esp) => {
-        this.especialidade = esp;
-        this.configurarFormulario();
-      })
-    }
-  }
-
-  salvar(): void {
-    Object.assign(this.especialidade, this.formulario.value);
-
-    if(this.formulario.valid){
-      if(this.especialidade.id)
-        this.service.editar(this.especialidade).subscribe(() => {
-          this.router.navigate(['/especialidadeList']);
-        });
-      else
-        this.service.criar(this.especialidade).subscribe(() => {
-          this.router.navigate(['/especialidadeList']);
-        });
-    }
-  }
-
-  cancelar() {
-    this.router.navigate(['/especialidadeList']);
-  }
-
-  private configurarFormulario(): void {
+  protected configurarFormulario(): void {
     this.formulario = this.formBuilder.group({
-      nome: [this.especialidade.nome]
+      nome: [this.entidade.nome],
     });
+  }
+
+  protected override getEnderecoLista(): string {
+    return '/especialidadeList';
+  }
+
+  protected inicializarEntidade() {
+    this.entidade = new Especialidade();
   }
 }
