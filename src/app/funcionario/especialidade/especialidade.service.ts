@@ -18,4 +18,8 @@ export class EspecialidadeService {
   listar(): Observable<Especialidade[]> {
     return this.http.get<Especialidade[]>(this.API);
   }
+
+  criar(especialidade: Especialidade): Observable<Especialidade> {
+    return this.http.post<Especialidade>(this.API, especialidade);
+  }
 }

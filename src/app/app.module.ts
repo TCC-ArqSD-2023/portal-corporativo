@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EspecialidadeListComponent } from './funcionario/especialidade/especialidade-list/especialidade-list.component';
 import { ConfigService } from './app-services/config.service';
+import { EspecialidadeFormComponent } from './funcionario/especialidade/especialidade-form/especialidade-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     EspecialidadeListComponent,
+    EspecialidadeFormComponent,
   ],
   imports: [
     BrowserModule,
