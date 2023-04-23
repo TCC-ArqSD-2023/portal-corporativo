@@ -23,14 +23,17 @@ export abstract class ComponenteCrudFormBase<T extends EntidadeBase<T>> implemen
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    this.configurarFormulario();
 
     if (id){
       this.service.obterPorId(parseInt(id!)).subscribe((e) => {
         this.entidade = e;
         this.configurarFormulario();
       })
+    } else {
+      this.preNovo();
     }
+
+    this.configurarFormulario();
   }
 
   salvar(): void {
@@ -68,12 +71,15 @@ export abstract class ComponenteCrudFormBase<T extends EntidadeBase<T>> implemen
       const controlErrors = this.formulario!.get(key)!.errors;
       if (controlErrors != null) {
         Object.keys(controlErrors).forEach(keyError => {
-         erros.push('Campo: \'' + key + '\', erro: ' + keyError + ', valor: ', controlErrors[keyError]);
+         erros.push('Campo: \'' + key + '\', erro: ' + keyError);
         });
       }
     });
 
     return erros;
+  }
+
+  protected preNovo(): void {
   }
 
   protected preSalvar(): void {
