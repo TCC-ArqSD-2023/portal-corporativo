@@ -1,0 +1,74 @@
+<section *ngIf="dadosCarregados, else carregandoDados">
+  <header>
+    <h3>Olá, {{ associado?.nome }}</h3>
+  </header>
+  <div class="card">
+    <div class="card-header">
+      Seu plano atual
+    </div>
+    <div class="card-body">
+      <h5 class="card-title text-primary">
+        {{ planoAtual?.nome }}
+        <span class="codigo-ans">(Código ANS: {{ planoAtual?.codigoAns }})</span>
+      </h5>
+      <p class="card-text">
+      </p>
+      <div class="row">
+        <div class="col">
+          <strong class="card-text">{{ planoAtual?.valorMensalidade | currency }}</strong>
+          <p class="card-text">{{ categorias[planoAtual?.categoria ?? 0] }} - {{ tipos[planoAtual?.tipo ?? 0] }}</p>
+        </div>
+        <div class="col">
+          <p class="card-text">
+            Consultas por ano: {{ planoAtual?.quantidadeConsultasAno }}
+          </p>
+          <p class="card-text">
+            Exames por ano: {{ planoAtual?.quantidadeExamesAno }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código ANS</th>
+        <th scope="col">Plano</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Odonto?</th>
+        <th scope="col">Idade (anos)</th>
+        <th scope="col">Consultas / Exames</th>
+        <th scope="col">Mensalidade</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let plano of planos">
+        <td>{{ plano.id }}</td>
+        <td>{{ plano.codigoAns }}</td>
+        <td>{{ plano.nome }}</td>
+        <td>{{ categorias[planoAtual?.categoria ?? 0] }}</td>
+        <td>{{ tipos[planoAtual?.tipo ?? 0] }}</td>
+        <td>{{ plano.odonto ? "Sim" : "Não" }}</td>
+        <td>{{ plano.idadeMinima + "-" + plano.idadeMaxima }}</td>
+        <td>{{ plano.quantidadeConsultasAno + "/" + plano.quantidadeExamesAno }}</td>
+        <td>{{ plano.valorMensalidade | currency }}</td>
+        <td>
+          <div class="linha-acoes text-end">
+            <button (click)="aderir(plano.id!)" class="btn btn-sm btn-outline-primary" type="button">Aderir</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<ng-template #carregandoDados>
+  <p>Carregando dados...</p>
+</ng-template>

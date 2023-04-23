@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ComponenteCrudListBase } from 'src/app/app-arq/componente-crud-list-base';
-import { Plano } from '../plano';
+import { CategoriaPlanoEnum, Plano, TipoPlanoEnum } from '../plano';
 import { PlanoService } from '../plano.service';
 
 @Component({
   selector: 'app-plano-list',
   templateUrl: './plano-list.component.html',
-  styleUrls: ['./plano-list.component.css']
+  styleUrls: ['./plano-list.component.css'],
 })
-export class PlanoListComponent extends ComponenteCrudListBase<Plano>{
+export class PlanoListComponent extends ComponenteCrudListBase<Plano> {
+  categorias = CategoriaPlanoEnum;
+  tipos = TipoPlanoEnum;
 
   constructor(service: PlanoService) {
     super(service);
@@ -19,5 +21,4 @@ export class PlanoListComponent extends ComponenteCrudListBase<Plano>{
       ? 1
       : -1;
   }
-
 }

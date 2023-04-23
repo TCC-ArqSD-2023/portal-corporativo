@@ -15,6 +15,7 @@ import { AreaComponent } from './area/area.component';
 import { PlanoListComponent } from './funcionario/plano/plano-list/plano-list.component';
 import { PlanoFormComponent } from './funcionario/plano/plano-form/plano-form.component';
 import { EnumToArrayPipe } from './shared/enums';
+import { AderirPlanoComponent } from './associado/aderir-plano/aderir-plano.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -28,6 +29,7 @@ registerLocaleData(localePt, 'pt');
     AreaComponent,
     PlanoListComponent,
     PlanoFormComponent,
+    AderirPlanoComponent,
   ],
   imports: [
     BrowserModule,

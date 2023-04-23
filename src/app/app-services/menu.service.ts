@@ -19,7 +19,7 @@ export class MenuService {
 
   private construirMenuAssociado(): MenuArea{
     const listaMenus = [
-      new MenuItem('file-earmark-medical-fill', 'Contratar ou trocar de plano', '/'),
+      new MenuItem('file-earmark-medical-fill', 'Aderir plano', '/aderir-plano'),
       new MenuItem('calendar3', 'Agendar consulta', '/'),
       new MenuItem('calendar-heart', 'Agendar exame', '/'),
     ]

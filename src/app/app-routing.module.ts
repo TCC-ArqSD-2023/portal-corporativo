@@ -6,6 +6,7 @@ import { EspecialidadeFormComponent } from './funcionario/especialidade/especial
 import { AreaComponent } from './area/area.component';
 import { PlanoListComponent } from './funcionario/plano/plano-list/plano-list.component';
 import { PlanoFormComponent } from './funcionario/plano/plano-form/plano-form.component';
+import { AderirPlanoComponent } from './associado/aderir-plano/aderir-plano.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'planoForm/:id',
     component: PlanoFormComponent
+  },
+  {
+    path: 'aderir-plano',
+    component: AderirPlanoComponent
   },
 ];
 

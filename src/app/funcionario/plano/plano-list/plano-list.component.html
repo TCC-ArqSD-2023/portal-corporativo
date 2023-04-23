@@ -30,8 +30,8 @@
         <td>{{ plano.id }}</td>
         <td>{{ plano.codigoAns }}</td>
         <td>{{ plano.nome }}</td>
-        <td>{{ plano.categoria }}</td>
-        <td>{{ plano.tipo }}</td>
+        <td>{{ categorias[plano?.categoria ?? 0] }}</td>
+        <td>{{ tipos[plano?.tipo ?? 0] }}</td>
         <td>{{ plano.odonto ? "Sim" : "Não" }}</td>
         <td>{{ plano.idadeMinima + "-" + plano.idadeMaxima }}</td>
         <td>{{ plano.quantidadeConsultasAno + "/" + plano.quantidadeExamesAno }}</td>

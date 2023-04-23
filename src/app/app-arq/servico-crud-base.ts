@@ -5,7 +5,7 @@ import { environment } from "src/environments/environment";
 
 export abstract class ServicoCrudBase<T extends EntidadeBase<T>>{
 
-  private readonly apiUrl;
+  protected readonly apiUrl;
 
   constructor(
     protected http: HttpClient,
