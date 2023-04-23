@@ -8,6 +8,19 @@
   text-decoration: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
+.area:hover{
+  background-image: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15));
+}
+
+.area.dev,
+.area.dev .icone,
+.area.dev .rotulo
+{
+  color: #999;
+}
+.area.dev:hover{
+  background-image: none;
+}
 
 .area .icone{
   color: #0081c6;
@@ -25,6 +38,10 @@
 }
 .area .rotulo .prefixo{
   font-size: 20px;
+}
+.area .rotulo .dev{
+  color: #ccc;
+  font-size: 12px;
 }
 
 .area-associado {

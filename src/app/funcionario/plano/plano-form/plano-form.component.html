@@ -1,1 +1,128 @@
-<p>plano-form works!</p>
+<form [formGroup]="formulario">
+  <div class="row g-3">
+
+    <!-- NOME -->
+    <div class="col-lg-8">
+      <label for="nome" class="form-label">Plano</label>
+      <input type="text" id="nome" formControlName="nome" class="form-control">
+      <div class="mensagem-erro" *ngIf="formulario.get('nome')?.touched && formulario.get('nome')?.errors">
+        {{ formulario.get('nome')?.errors | json }}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row g-3">
+    <!-- CÓDIGO ANS -->
+    <div class="col-md-4">
+      <label for="codigoAns" class="form-label">Código ANS</label>
+      <input type="text" id="codigoAns" formControlName="codigoAns" class="form-control">
+      <div class="mensagem-erro" *ngIf="formulario.get('codigoAns')?.touched && formulario.get('codigoAns')?.errors">
+        {{ formulario.get('codigoAns')?.errors | json }}
+      </div>
+    </div>
+    <!-- CATEGORIA -->
+    <div class="col-md-4">
+      <label for="categoria" class="form-label">Categoria</label>
+      <select formControlName="categoria" class="form-select">
+        <option selected [ngValue]="null">Selecione...</option>
+        <option *ngFor="let opcao of categorias | enumToArray" [ngValue]="opcao.id">
+          {{ opcao.valor }}
+        </option>
+      </select>
+      <div class="mensagem-erro" *ngIf="formulario.get('categoria')?.touched && formulario.get('categoria')?.errors">
+        {{ formulario.get('categoria')?.errors | json }}
+      </div>
+    </div>
+    <!-- TIPO -->
+    <div class="col-md-4">
+      <label for="tipo" class="form-label">Tipo</label>
+      <select formControlName="tipo" class="form-select">
+        <option selected [ngValue]="null">Selecione...</option>
+        <option *ngFor="let opcao of tipos | enumToArray" [ngValue]="opcao.id">
+          {{ opcao.valor }}
+        </option>
+      </select>
+      <div class="mensagem-erro" *ngIf="formulario.get('tipo')?.touched && formulario.get('tipo')?.errors">
+        {{ formulario.get('tipo')?.errors | json }}
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row g-3">
+    <!-- IDADE MIN -->
+    <div class="col-md-4">
+      <label for="idadeMinima" class="form-label">Idade mínima</label>
+      <input type="number" id="idadeMinima" formControlName="idadeMinima" class="form-control">
+      <div class="mensagem-erro"
+        *ngIf="formulario.get('idadeMinima')?.touched && formulario.get('idadeMinima')?.errors">
+        {{ formulario.get('idadeMinima')?.errors | json }}
+      </div>
+    </div>
+    <!-- IDADE MAX -->
+    <div class="col-md-4">
+      <label for="idadeMaxima" class="form-label">Idade mínima</label>
+      <input type="number" id="idadeMaxima" formControlName="idadeMaxima" class="form-control">
+      <div class="mensagem-erro"
+        *ngIf="formulario.get('idadeMaxima')?.touched && formulario.get('idadeMaxima')?.errors">
+        {{ formulario.get('idadeMaxima')?.errors | json }}
+      </div>
+    </div>
+    <!-- ODONTO -->
+    <div class="col-md-4">
+      <div class="form-check">
+        <input formControlName="odonto" class="form-check-input" type="checkbox" id="odonto">
+        <label class="form-check-label" for="odonto">
+          Odontologia inclusa?
+        </label>
+      </div>
+      <div class="mensagem-erro" *ngIf="formulario.get('odonto')?.touched && formulario.get('odonto')?.errors">
+        {{ formulario.get('odonto')?.errors | json }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <!-- QTD CONSULTAS -->
+    <div class="col-md-4">
+      <label for="quantidadeConsultasAno" class="form-label">Consultas/ano</label>
+      <input type="number" id="quantidadeConsultasAno" formControlName="quantidadeConsultasAno" class="form-control">
+      <div class="mensagem-erro"
+        *ngIf="formulario.get('quantidadeConsultasAno')?.touched && formulario.get('quantidadeConsultasAno')?.errors">
+        {{ formulario.get('quantidadeConsultasAno')?.errors | json }}
+      </div>
+    </div>
+
+    <!-- IDADE MAX -->
+    <div class="col-md-4">
+      <label for="quantidadeExamesAno" class="form-label">Exames/ano</label>
+      <input type="number" id="quantidadeExamesAno" formControlName="quantidadeExamesAno" class="form-control">
+      <div class="mensagem-erro"
+        *ngIf="formulario.get('quantidadeExamesAno')?.touched && formulario.get('quantidadeExamesAno')?.errors">
+        {{ formulario.get('quantidadeExamesAno')?.errors | json }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <!-- IDADE MAX -->
+    <div class="col-md-4">
+      <label for="valorMensalidade" class="form-label">Valor da mensalidade (R$)</label>
+      <input type="number" id="valorMensalidade" formControlName="valorMensalidade" class="form-control">
+      <div class="mensagem-erro"
+        *ngIf="formulario.get('valorMensalidade')?.touched && formulario.get('valorMensalidade')?.errors">
+        {{ formulario.get('valorMensalidade')?.errors | json }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col mt-3">
+      <div class="btns-acoes">
+        <button (click)="salvar()" class="btn btn-primary" type="button">Salvar</button>
+        <button (click)="cancelar()" class="btn" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ServicoCrudBase } from "./servico-crud-base";
 import { EntidadeBase } from "./entidade-base";
 import { ActivatedRoute, Router } from "@angular/router";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, ValidationErrors } from "@angular/forms";
 
 @Component({
   template: ""
@@ -36,6 +36,10 @@ export abstract class ComponenteCrudFormBase<T extends EntidadeBase<T>> implemen
   salvar(): void {
     Object.assign(this.entidade, this.formulario.value);
 
+    this.preSalvar();
+    console.log(this.entidade);
+
+
     if(this.formulario.valid){
       if(this.entidade.id)
         this.service.editar(this.entidade).subscribe(() => {
@@ -45,6 +49,8 @@ export abstract class ComponenteCrudFormBase<T extends EntidadeBase<T>> implemen
         this.service.criar(this.entidade).subscribe(() => {
           this.router.navigate([this.getEnderecoLista()]);
         });
+    } else {
+      alert('Dados inválidos.\n\n' + this.getFormValidationErrors().join("\n"))
     }
   }
 
@@ -55,4 +61,22 @@ export abstract class ComponenteCrudFormBase<T extends EntidadeBase<T>> implemen
   protected abstract inicializarEntidade(): void;
   protected abstract configurarFormulario(): void;
   protected abstract getEnderecoLista(): string;
+
+  private getFormValidationErrors(): string[] {
+    let erros: string[] = [];
+    Object.keys(this.formulario.controls).forEach(key => {
+      const controlErrors = this.formulario!.get(key)!.errors;
+      if (controlErrors != null) {
+        Object.keys(controlErrors).forEach(keyError => {
+         erros.push('Campo: \'' + key + '\', erro: ' + keyError + ', valor: ', controlErrors[keyError]);
+        });
+      }
+    });
+
+    return erros;
+  }
+
+  protected preSalvar(): void {
+  }
 }
+

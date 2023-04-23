@@ -3,8 +3,8 @@ import { EntidadeBase } from "src/app/app-arq/entidade-base";
 export class Plano extends EntidadeBase<Plano>{
   nome?: string
   codigoAns?: string
-  categoria?: CategoriaPlano
-  tipo?: TipoPlano
+  categoria?: CategoriaPlanoEnum
+  tipo?: TipoPlanoEnum
   odonto?: boolean
   idadeMinima?: number
   idadeMaxima?: number
@@ -13,12 +13,12 @@ export class Plano extends EntidadeBase<Plano>{
   valorMensalidade?: number
 }
 
-export enum CategoriaPlano{
+export enum CategoriaPlanoEnum{
   Individual = 0,
   Empresarial
 }
 
-export enum TipoPlano {
+export enum TipoPlanoEnum {
   Enfermaria = 0,
   Apartamento,
   Vip

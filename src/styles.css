@@ -1,13 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-html, body{
-  height: 100%!important;
+html,
+body {
+  height: 100% !important;
+}
+
+#principal {
+  padding: 20px 0;
 }
 
 /* LISTA */
-.linha-acoes .btn{
-  opacity: .3;
+.linha-acoes .btn {
+  opacity: 0.3;
   margin-left: 8px;
 }
-tr:hover .linha-acoes .btn{
+tr:hover .linha-acoes .btn {
   opacity: 1;
+}
+
+/* FORMS */
+.form-check {
+  margin-top: 28px;
+}
+
+.btns-acoes {
+  margin-top: 20px;
 }

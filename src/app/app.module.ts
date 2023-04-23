@@ -15,11 +15,13 @@ import { InputComponent } from './shared/input/input.component';
 import { AreaComponent } from './area/area.component';
 import { PlanoListComponent } from './funcionario/plano/plano-list/plano-list.component';
 import { PlanoFormComponent } from './funcionario/plano/plano-form/plano-form.component';
+import { EnumToArrayPipe } from './shared/enums';
 
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
+    EnumToArrayPipe,
     AppComponent,
     HomeComponent,
     EspecialidadeListComponent,

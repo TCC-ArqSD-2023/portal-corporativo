@@ -35,10 +35,10 @@
         <td>{{ plano.odonto ? "Sim" : "Não" }}</td>
         <td>{{ plano.idadeMinima + "-" + plano.idadeMaxima }}</td>
         <td>{{ plano.quantidadeConsultasAno + "/" + plano.quantidadeExamesAno }}</td>
-        <td>{{ plano.valorMensalidade | currency}}</td>
+        <td>{{ plano.valorMensalidade | currency }}</td>
         <td>
           <div class="linha-acoes text-end">
-            <button routerLink="/especialidadeForm/{{ plano.id }}" class="btn btn-sm btn-outline-primary" type="button">Editar</button>
+            <button routerLink="/planoForm/{{ plano.id }}" class="btn btn-sm btn-outline-primary" type="button">Editar</button>
             <button (click)="remover(plano.id!)" class="btn btn-sm btn-outline-danger" type="button">Remover</button>
           </div>
         </td>
