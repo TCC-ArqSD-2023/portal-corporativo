@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EspecialidadeListComponent } from './funcionario/especialidade/especialidade-list/especialidade-list.component';
 import { EspecialidadeFormComponent } from './funcionario/especialidade/especialidade-form/especialidade-form.component';
-import { InputComponent } from './shared/input/input.component';
 import { AreaComponent } from './area/area.component';
 import { PlanoListComponent } from './funcionario/plano/plano-list/plano-list.component';
 import { PlanoFormComponent } from './funcionario/plano/plano-form/plano-form.component';
@@ -26,7 +25,6 @@ registerLocaleData(localePt, 'pt');
     HomeComponent,
     EspecialidadeListComponent,
     EspecialidadeFormComponent,
-    InputComponent,
     AreaComponent,
     PlanoListComponent,
     PlanoFormComponent,

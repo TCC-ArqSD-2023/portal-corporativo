@@ -11,7 +11,7 @@ h1{
   flex-direction: column;
 
   width: 160px;
-  height: 120px;
+  min-height: 120px;
   margin: 12px;
   padding: 8px;
   background-color: #0081c6;
@@ -23,7 +23,7 @@ h1{
 }
 
 .menu-item:hover{
-  background-color: #0977b3;
+  background-image: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15));
 }
 
 .menu-item .icone{
@@ -39,4 +39,5 @@ h1{
   margin: 0;
 
   font-size: 20px;
+  line-height: 1;
 }
