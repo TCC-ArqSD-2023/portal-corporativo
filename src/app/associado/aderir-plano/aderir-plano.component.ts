@@ -50,17 +50,17 @@ export class AderirPlanoComponent implements OnInit {
             next: (plano) => {
               this.planoAtual = plano;
 
-              this.dadosCarregados = true;
+              this.planoService.obter().subscribe({
+                next: (planos) => {
+                  this.planos = planos.filter( p => p.id !== this.associado?.planoId);
+                  this.dadosCarregados = true;
+                }
+              })
             }
           })
       }
     });
 
-    this.planoService.obter().subscribe({
-      next: (planos) => {
-        this.planos = planos;
-      }
-    })
   }
 
 

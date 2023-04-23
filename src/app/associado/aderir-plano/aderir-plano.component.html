@@ -7,7 +7,7 @@
       Seu plano atual
     </div>
     <div class="card-body">
-      <h5 class="card-title text-primary">
+      <h5 class="card-title">
         {{ planoAtual?.nome }}
         <span class="codigo-ans">(Código ANS: {{ planoAtual?.codigoAns }})</span>
       </h5>
@@ -31,7 +31,7 @@
   </div>
 
   <hr>
-
+  <h4>Escolha seu novo plano:</h4>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -52,8 +52,8 @@
         <td>{{ plano.id }}</td>
         <td>{{ plano.codigoAns }}</td>
         <td>{{ plano.nome }}</td>
-        <td>{{ categorias[planoAtual?.categoria ?? 0] }}</td>
-        <td>{{ tipos[planoAtual?.tipo ?? 0] }}</td>
+        <td>{{ categorias[plano?.categoria ?? 0] }}</td>
+        <td>{{ tipos[plano?.tipo ?? 0] }}</td>
         <td>{{ plano.odonto ? "Sim" : "Não" }}</td>
         <td>{{ plano.idadeMinima + "-" + plano.idadeMaxima }}</td>
         <td>{{ plano.quantidadeConsultasAno + "/" + plano.quantidadeExamesAno }}</td>
