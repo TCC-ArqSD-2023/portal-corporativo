@@ -16,6 +16,7 @@ import { PlanoListComponent } from './funcionario/plano/plano-list/plano-list.co
 import { PlanoFormComponent } from './funcionario/plano/plano-form/plano-form.component';
 import { EnumToArrayPipe } from './shared/enums';
 import { AderirPlanoComponent } from './associado/aderir-plano/aderir-plano.component';
+import { ExameListComponent } from './conveniado/exame-list/exame-list.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -30,6 +31,7 @@ registerLocaleData(localePt, 'pt');
     PlanoListComponent,
     PlanoFormComponent,
     AderirPlanoComponent,
+    ExameListComponent,
   ],
   imports: [
     BrowserModule,
