@@ -7,6 +7,7 @@ import { AreaComponent } from './area/area.component';
 import { PlanoListComponent } from './funcionario/plano/plano-list/plano-list.component';
 import { PlanoFormComponent } from './funcionario/plano/plano-form/plano-form.component';
 import { AderirPlanoComponent } from './associado/aderir-plano/aderir-plano.component';
+import { ExameListComponent } from './conveniado/exame-list/exame-list.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'aderir-plano',
     component: AderirPlanoComponent
+  },
+  {
+    path: 'exameList',
+    component: ExameListComponent
   },
 ];
 

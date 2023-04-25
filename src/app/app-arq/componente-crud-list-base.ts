@@ -12,7 +12,12 @@ export abstract class ComponenteCrudListBase<T extends EntidadeBase<T>> implemen
   constructor(protected service: ServicoCrudBase<T>){}
 
   ngOnInit(): void {
+    this.onInit();
+
     this.atualizar();
+  }
+
+  protected onInit(): void {
   }
 
   atualizar(): void {
@@ -21,6 +26,9 @@ export abstract class ComponenteCrudListBase<T extends EntidadeBase<T>> implemen
     this.service.obter().subscribe((lista) => {
       this.atualizandoLista = false;
       this.entidades = lista.sort(this.comparar);
+
+      console.log(this.entidades);
+
     });
   }
 

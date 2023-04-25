@@ -34,13 +34,13 @@ export class MenuService {
   }
   private construirMenuPrestador(): MenuArea{
     const listaMenus = [
-      new MenuItem('', '', '/')
+      new MenuItem('chat-heart', 'Consultas', '/')
     ]
     return new MenuArea("Prestador", listaMenus);
   }
   private construirMenuConveniado(): MenuArea{
     const listaMenus = [
-      new MenuItem('', '', '/')
+      new MenuItem('clipboard-pulse', 'Exames', '/exameList')
     ]
     return new MenuArea("Conveniado", listaMenus);
   }

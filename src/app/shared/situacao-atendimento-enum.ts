@@ -2,7 +2,7 @@ export enum SituacaoAtendimentoEnum
 {
     Aberto = 0,
     Agendado,
-    Autorizado,
+    AguardandoAutorizacao,
     Cancelado,
     Finalizado
 }
