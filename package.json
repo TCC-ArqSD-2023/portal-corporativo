@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "start-prod": "ng serve --configuration production",
-    "build": "ng build",
+    "build": "ng build -c production",
+    "build-dev": "ng build",
+    "build-gh-pages": "ng build -c production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
