@@ -19,6 +19,7 @@ import { AderirPlanoComponent } from './associado/aderir-plano/aderir-plano.comp
 import { ExameListComponent } from './conveniado/exame/exame-list/exame-list.component';
 import { ExameFormComponent } from './conveniado/exame/exame-form/exame-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgendarExameComponent } from './associado/agendar-exame/agendar-exame.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -35,6 +36,7 @@ registerLocaleData(localePt, 'pt');
     AderirPlanoComponent,
     ExameListComponent,
     ExameFormComponent,
+    AgendarExameComponent,
   ],
   imports: [
     BrowserModule,

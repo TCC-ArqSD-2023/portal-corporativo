@@ -1,0 +1,54 @@
+<header>
+  <h3>Agendamento de exames</h3>
+</header>
+<section class="filtros">
+  <header>Filtros</header>
+  <div class="row">
+    <div class="col">
+      <!-- TIPOS EXAMES -->
+      <div class="col-md-4">
+        <label for="tipoExame" class="form-label">Tipo de exame</label>
+        <select [(ngModel)]="filtroTipoExameId" (ngModelChange)="onChangeTipoExame()" class="form-select">
+          <option selected [ngValue]="undefined">Selecione...</option>
+          <option *ngFor="let opcao of tiposExames" [ngValue]="opcao.id">
+            {{ opcao.nome }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Tipo exame</th>
+        <th scope="col">Dia</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Situação</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exame of exames">
+        <td>{{ exame.tipoExameNome }}</td>
+        <td>{{ exame.inicio | date}}</td>
+        <td>{{ exame.inicio | date:'shortTime'}}</td>
+        <td> {{ situacoesExames[exame?.situacao ?? 0] }} </td>
+        <td>
+          <div class="linha-acoes text-end">
+            <button (click)="agendar(exame.id!)" class="btn btn-sm btn-outline-primary" type="button">Agendar</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="atualizandoLista">
+    Buscando dados...
+  </p>
+  <p *ngIf="exames.length == 0 && !atualizandoLista">
+    Não há exames cadastrados!
+  </p>
+
+</section>
