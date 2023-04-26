@@ -1,0 +1,46 @@
+<form [formGroup]="formulario">
+
+  <div class="row g-3 mb-3">
+    <div class="col-md-4">
+      <label class="form-label">Local</label>
+      <p>
+        <strong>{{ entidade.conveniado?.nome ?? "" }}</strong><br>
+      </p>
+    </div>
+  </div>
+  <div class="row g-3 mb-3">
+    <!-- TIPOS EXAMES -->
+    <div class="col-md-4">
+      <label for="tipoExame" class="form-label">Tipo de exame</label>
+      <select formControlName="tipoExame" class="form-select">
+        <option selected [ngValue]="undefined">Selecione...</option>
+        <option *ngFor="let opcao of tiposExame" [ngValue]="opcao">
+          {{ opcao.nome }}
+        </option>
+      </select>
+      <div class="mensagem-erro" *ngIf="formulario.get('tipoExame')?.touched && formulario.get('tipoExame')?.errors">
+        {{ formulario.get('tipoExame')?.errors | json }}
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="inicio" class="form-label">Data</label>
+      <input type="datetime-local" id="inicio" formControlName="inicio" class="form-control">
+      <div class="mensagem-erro" *ngIf="formulario.get('inicio')?.touched && formulario.get('inicio')?.errors">
+        {{ formulario.get('inicio')?.errors | json }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 mb-3">
+  </div>
+
+  <div class="row g-3">
+    <div class="col mt-3">
+      <div class="btns-acoes">
+        <button (click)="salvar()" class="btn btn-primary" type="button">Salvar</button>
+        <button (click)="cancelar()" class="btn" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</form>

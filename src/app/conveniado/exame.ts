@@ -7,12 +7,18 @@ import { TipoExame } from "./tipo-exame";
 export class Exame extends EntidadeBase<Exame>{
   inicio?: Date;
   fim?: Date;
-  tipoExame?: TipoExame;
-  conveniado?: Conveniado;
-  paciente?: Associado;
+  tipoExameNome?: string;
   situacao?: SituacaoAtendimentoEnum;
 
   tipoExameId?: number;
   conveniadoId?: number;
   pacienteId?: number;
+
+  conveniadoNome?: string;
+  pacienteNome?: string;
+
+  conveniado?: Conveniado;
+  paciente?: Associado;
+  tipoExame?: TipoExame;
 }
+

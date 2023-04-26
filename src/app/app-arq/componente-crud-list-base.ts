@@ -26,9 +26,6 @@ export abstract class ComponenteCrudListBase<T extends EntidadeBase<T>> implemen
     this.service.obter().subscribe((lista) => {
       this.atualizandoLista = false;
       this.entidades = lista.sort(this.comparar);
-
-      console.log(this.entidades);
-
     });
   }
 

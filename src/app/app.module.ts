@@ -16,7 +16,9 @@ import { PlanoListComponent } from './funcionario/plano/plano-list/plano-list.co
 import { PlanoFormComponent } from './funcionario/plano/plano-form/plano-form.component';
 import { EnumToArrayPipe } from './shared/enums';
 import { AderirPlanoComponent } from './associado/aderir-plano/aderir-plano.component';
-import { ExameListComponent } from './conveniado/exame-list/exame-list.component';
+import { ExameListComponent } from './conveniado/exame/exame-list/exame-list.component';
+import { ExameFormComponent } from './conveniado/exame/exame-form/exame-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(localePt, 'pt');
 
@@ -32,6 +34,7 @@ registerLocaleData(localePt, 'pt');
     PlanoFormComponent,
     AderirPlanoComponent,
     ExameListComponent,
+    ExameFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ registerLocaleData(localePt, 'pt');
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [
     {
