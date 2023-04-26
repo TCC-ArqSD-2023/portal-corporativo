@@ -27,7 +27,7 @@
         <td>{{ exame.inicio | date:'shortTime'}}</td>
         <td> {{ situacoesExames[exame?.situacao ?? 0] }} </td>
         <td>
-          <div class="linha-acoes text-end">
+          <div class="linha-acoes text-end" *ngIf="exame.situacao === 0">
             <button routerLink="/exameForm/{{ exame.id }}" class="btn btn-sm btn-outline-primary" type="button">Editar</button>
             <button (click)="remover(exame.id!)" class="btn btn-sm btn-outline-danger" type="button">Remover</button>
           </div>
