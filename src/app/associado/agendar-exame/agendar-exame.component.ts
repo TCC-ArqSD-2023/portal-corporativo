@@ -40,7 +40,11 @@ export class AgendarExameComponent implements OnInit {
   }
 
   agendar(exameId: number): void{
-    this.router.navigate(['/area/associado']);
+    this.exameService.agendarExame(exameId, this.pacienteId).subscribe({
+      next: () => {
+        this.router.navigate(['/area/associado']);
+      }
+    })
   }
 
   private atualizarExames(): void {
