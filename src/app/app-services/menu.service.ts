@@ -27,8 +27,9 @@ export class MenuService {
   }
   private construirMenuFuncionario(): MenuArea{
     const listaMenus = [
+      new MenuItem('check2-square', 'Autorizar exames', '/autorizar-exame'),
       new MenuItem('prescription2', 'Especialidades', '/especialidadeList'),
-      new MenuItem('file-earmark-medical-fill', 'Planos', '/planoList')
+      new MenuItem('file-earmark-medical-fill', 'Planos', '/planoList'),
     ]
     return new MenuArea("Funcionário", listaMenus);
   }

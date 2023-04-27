@@ -18,4 +18,8 @@ export class ExameService extends ServicoCrudBase<Exame>{
   agendarExame(exameId: number, pacienteId: number): Observable<Exame>{
     return this.http.post<Exame>(this.apiUrl+"/agendar", {exameId, pacienteId});
   }
+
+  autorizarExame(exameId: number): Observable<Exame>{
+    return this.http.post<Exame>(this.apiUrl+"/autorizar", exameId);
+  }
 }

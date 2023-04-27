@@ -10,6 +10,7 @@ import { AderirPlanoComponent } from './associado/aderir-plano/aderir-plano.comp
 import { ExameListComponent } from './conveniado/exame/exame-list/exame-list.component';
 import { ExameFormComponent } from './conveniado/exame/exame-form/exame-form.component';
 import { AgendarExameComponent } from './associado/agendar-exame/agendar-exame.component';
+import { AutorizarExameComponent } from './funcionario/autorizar-exame/autorizar-exame.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,10 @@ const routes: Routes = [
   {
     path: 'agendar-exame',
     component: AgendarExameComponent
+  },
+  {
+    path: 'autorizar-exame',
+    component: AutorizarExameComponent
   },
 ];
 

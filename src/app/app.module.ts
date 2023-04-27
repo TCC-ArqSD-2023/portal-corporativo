@@ -20,6 +20,7 @@ import { ExameListComponent } from './conveniado/exame/exame-list/exame-list.com
 import { ExameFormComponent } from './conveniado/exame/exame-form/exame-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgendarExameComponent } from './associado/agendar-exame/agendar-exame.component';
+import { AutorizarExameComponent } from './funcionario/autorizar-exame/autorizar-exame.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -37,6 +38,7 @@ registerLocaleData(localePt, 'pt');
     ExameListComponent,
     ExameFormComponent,
     AgendarExameComponent,
+    AutorizarExameComponent,
   ],
   imports: [
     BrowserModule,
